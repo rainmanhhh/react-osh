@@ -1,0 +1,89 @@
+{
+  "name": "react-osh",
+  "version": "0.1.0",
+  "description": "simple react state manager based on observer-util",
+  "main": "dist/main.cjs.js",
+  "module": "dist/main.esm.js",
+  "typings": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf dist/",
+    "build": "yarn clean && rollup -c",
+    "start": "rollup -c -w",
+    "test": "jest --coverage",
+    "test:watch": "jest --coverage --watch",
+    "test:prod": "npm run test -- --no-cache",
+    "lint": "eslint ./src/**/* --ext .js,.ts --fix",
+    "lint:test": "eslint ./test/**/* --ext .js,.ts --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:rainmanhhh/react-osh.git"
+  },
+  "keywords": [
+    "typescript",
+    "react",
+    "reactjs",
+    "observable",
+    "state management",
+    "es6 proxy"
+  ],
+  "author": "rainmanhhh",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/react": "^16.9.2",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
+    "eslint": "^6.2.1",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "react": "^16.9.0",
+    "rollup": "^1.20.1",
+    "rollup-plugin-commonjs": "^10.0.2",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-typescript2": "^0.22.1",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.3.0",
+    "tslib": "^1.10.0",
+    "typescript": "^3.5.3"
+  },
+  "peerDependencies": {
+    "react": "^16.9.0"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testEnvironment": "node",
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    },
+    "collectCoverageFrom": [
+      "src/*.{js,ts}"
+    ],
+    "testURL": "http://localhost/"
+  }
+}
