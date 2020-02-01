@@ -15,8 +15,8 @@
     "test": "jest --coverage",
     "test:watch": "jest --coverage --watch",
     "test:prod": "npm run test -- --no-cache",
-    "lint": "eslint ./src/**/* --ext .js,.ts --fix",
-    "lint:test": "eslint ./test/**/* --ext .js,.ts --fix"
+    "lint": "eslint ./src/**/* ./test/**/* --ext .js,.ts",
+    "lint:fix": "lint --fix"
   },
   "repository": {
     "type": "git",
@@ -33,27 +33,36 @@
   "author": "rainmanhhh",
   "license": "MIT",
   "devDependencies": {
-    "@types/jest": "^24.0.18",
+    "@types/enzyme": "^3.10.4",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^25.1.1",
     "@types/react": "^16.9.2",
-    "@typescript-eslint/eslint-plugin": "^2.0.0",
-    "@typescript-eslint/parser": "^2.0.0",
-    "eslint": "^6.2.1",
-    "eslint-config-prettier": "^6.1.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-react": "^7.14.3",
-    "jest": "^24.9.0",
-    "prettier": "^1.18.2",
+    "@types/react-dom": "^16.9.5",
+    "@types/sinon": "^7.5.1",
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "@typescript-eslint/parser": "^2.18.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.4",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.0",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1",
     "react": "^16.9.0",
-    "rollup": "^1.20.1",
-    "rollup-plugin-commonjs": "^10.0.2",
+    "react-dom": "^16.12.0",
+    "rollup": "^1.31.0",
+    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-sourcemaps": "^0.4.2",
-    "rollup-plugin-typescript2": "^0.22.1",
-    "ts-jest": "^24.0.2",
-    "ts-node": "^8.3.0",
+    "rollup-plugin-sourcemaps": "^0.5.0",
+    "rollup-plugin-typescript2": "^0.25.3",
+    "sinon": "^8.1.1",
+    "ts-jest": "^25.1.0",
+    "ts-node": "^8.6.2",
     "tslib": "^1.10.0",
-    "typescript": "^3.5.3"
+    "typescript": "^3.7.5"
   },
   "peerDependencies": {
     "react": "^16.9.0"
@@ -62,7 +71,7 @@
     "transform": {
       ".(ts|tsx)": "ts-jest"
     },
-    "testEnvironment": "node",
+    "testEnvironment": "jsdom",
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
     "moduleFileExtensions": [
       "ts",
@@ -85,5 +94,8 @@
       "src/*.{js,ts}"
     ],
     "testURL": "http://localhost/"
+  },
+  "dependencies": {
+    "@nx-js/observer-util": "^4.2.2"
   }
 }

@@ -1,3 +1,4 @@
-export function add(a: number, b: number): number {
-  return a + b
-}
+import view from './view'
+import store from './store'
+
+export { view, store }
