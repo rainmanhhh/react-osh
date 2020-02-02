@@ -12,8 +12,8 @@ const globals = {
 export default {
   input: `src/index.ts`,
   output: [
-    { file: pkg.main, name: 'main', format: 'umd', sourcemap: true, globals },
-    { file: pkg.module, format: 'es', sourcemap: true, globals }
+    {file: pkg.main, name: 'main', format: 'umd', sourcemap: true, globals},
+    {file: pkg.module, format: 'es', sourcemap: true, globals}
   ],
   external: ['react'],
   watch: {

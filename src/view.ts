@@ -1,7 +1,6 @@
-import { FC, useState, useEffect, useMemo, memo, useCallback } from 'react'
-import { observe, unobserve } from '@nx-js/observer-util'
-
-export let isInsideFunctionComponent = false
+import {FC, memo, useCallback, useEffect, useMemo, useState} from 'react'
+import {observe, unobserve} from '@nx-js/observer-util'
+import {utils} from './utils'
 
 export default function view<T>(Comp: FC<T>) {
   // use a hook based reactive wrapper when we can
@@ -26,12 +25,12 @@ export default function view<T>(Comp: FC<T>) {
 
     // the isInsideFunctionComponent flag is used to toggle `store` behavior
     // based on where it was called from
-    isInsideFunctionComponent = true
+    utils.isInsideFunctionalComponent = true
     try {
       // run the reactive render instead of the original one
       return render(props)
     } finally {
-      isInsideFunctionComponent = false
+      utils.isInsideFunctionalComponent = false
     }
   })
 

@@ -1,17 +1,14 @@
-import React, { StrictMode } from 'react'
-import { act } from 'react-dom/test-utils'
-import { Counter, CounterStore, renderTimes } from './Counter'
-import { configure, mount } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
-
-configure({ adapter: new Adapter() })
+import React, {StrictMode} from 'react'
+import {act} from 'react-dom/test-utils'
+import Counter, {CounterStore, renderTimes} from './Counter'
+import {mount} from 'enzyme'
 
 const cs = CounterStore
 let expectedCounterValue = 1
 let expectedRenderTimes = 0
 cs.count = expectedCounterValue
 
-describe('Counter', function TestCounter() {
+describe('Counter', function() {
   const wrapper = mount(
     <StrictMode>
       <Counter />
