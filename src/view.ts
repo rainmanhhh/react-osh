@@ -1,10 +1,10 @@
-import {FC, memo, useCallback, useEffect, useMemo, useState} from 'react'
+import {FC, useCallback, useEffect, useMemo, useState} from 'react'
 import {observe, unobserve} from '@nx-js/observer-util'
 import {utils} from './utils'
 
-export default function view<T>(Comp: FC<T>) {
+export default function view<T>(Comp: FC<T>): FC<T> {
   // use a hook based reactive wrapper when we can
-  const ReactiveComp = memo((props: T) => {
+  const ReactiveComp = (props: T) => {
     // use a dummy setState to update the component
     const [, setState] = useState()
     const forceUpdate = useCallback(() => setState({}), [])
@@ -32,16 +32,9 @@ export default function view<T>(Comp: FC<T>) {
     } finally {
       utils.isInsideFunctionalComponent = false
     }
-  })
+  }
 
   ReactiveComp.displayName = Comp.displayName || Comp.name
-
-  // copy static props for function components
-  // const rc = ReactiveComp as any
-  // const c = Comp as any
-  // for (const key of Object.keys(c)) {
-  //   rc[key] = c[key]
-  // }
 
   return ReactiveComp
 }
