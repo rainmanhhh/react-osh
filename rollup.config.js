@@ -12,8 +12,8 @@ const globals = {
 export default {
   input: `src/index.ts`,
   output: [
-    {file: pkg.main, name: 'main', format: 'umd', sourcemap: true, globals},
-    {file: pkg.module, format: 'es', sourcemap: true, globals}
+    { file: pkg.main, name: 'main', format: 'umd', sourcemap: true, globals },
+    { file: pkg.module, format: 'es', sourcemap: true, globals }
   ],
   external: ['react'],
   watch: {
@@ -23,7 +23,10 @@ export default {
     // Allow json resolution
     json(),
     // Compile TypeScript files
-    typescript({useTsconfigDeclarationDir: true}),
+    typescript({
+      useTsconfigDeclarationDir: true,
+      objectHashIgnoreUnknownHack: true
+    }),
     // Allow bundling cjs modules (unlike webpack, rollup doesn"t understand cjs)
     commonjs(),
     // Allow node_modules resolution, so you can use "external" to control
