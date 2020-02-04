@@ -5,10 +5,8 @@ on:
     branches: [master]
 
 jobs:
-  build:
-
+  main:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@master
       - run: yarn install --frozen-lockfile --non-interactive

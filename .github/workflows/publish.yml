@@ -6,10 +6,8 @@ on:
     master_branch: master
 
 jobs:
-  build:
-
+  main:
     runs-on: ubuntu-latest
-
     steps:
       - name: Get tag name
         id: get_tag_name
