@@ -6,8 +6,7 @@ script: yarn test && yarn build
 deploy:
   provider: npm
   email: rainmanhhh@foxmail.com
-  api_key:
-    secure: Y52x4JRloiXgOgIWiOgKXHO/UUrBKe3vsxSBMfoMCWjzTBi2WU/+hkXLMOgVsxK1NiBBqz2+6ky4s6GiKcvAQQ36Wig+lJ0Kfb09Razq9COZIjdDKc46I05AcN31OFMQYtDPOXvtleND0D53IuLO1M19797+88SdqfqO7ne/9TVzO3oHZpUgsb0IYjamPaDxs0sBoH+mvBL6NkMXde4sA4z4aWw3i50kU4EXzH+5zJgjlMqYeun7jgUt693rfSLHVCbF1lxACH2GoAPku7/NhOlj8hNFGguC3M3ANm6ZrQisUH+qYq81MaCNAnodyZVijKPfSiXg07wpL9gBDKNNI7muBn0VLlEPfWuPW8L54H4eFa7kUtv6LcIemREjZBO10e7CeSLOGOIwE6B2D0msqXFLnKDYg3roGA7isSTOtqfjx1IhbbTdkvuSFFGRq+PnCJJ+vDAfj/koZU6VamQrCsabh6/NjPJxf5Htijnu6CfBH6HBaaoKM/HZiTEIpsRq0tL+DvnR4NuRrBbSiGxKjf4hAnHbEtkt1ZfZ+4pu3RUdi7eAlKX7F+KpvuFZtoXO3Ki9vgi2m732UhYm6EhKWp8LoN91tPm+zrfdcshlZepcHX6qSQVl40UdQ0XYTD9kH6w8RnnNzGA7Ba87qy6jSPyZTasrlijS3BvOJL13ZrE=
+  api_key: "$NPM_TOKEN"
   skip_cleanup: true
   on:
     tags: true
