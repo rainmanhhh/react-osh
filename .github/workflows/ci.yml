@@ -26,3 +26,8 @@ jobs:
     - name: Build
       id: build
       run: yarn build
+    - name: Publish to NPM
+      id: publish_npm
+      uses: luvies/action-yarn-publish@v0.1.1
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

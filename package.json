@@ -1,6 +1,6 @@
 {
   "name": "react-osh",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "simple react state manager based on observer-util",
   "main": "dist/main.cjs.js",
   "module": "dist/main.esm.js",
