@@ -2,6 +2,7 @@
 ![NPM](https://img.shields.io/npm/l/react-osh)
 ![npm](https://img.shields.io/npm/v/react-osh)
 ![CI](https://github.com/rainmanhhh/react-osh/workflows/CI/badge.svg)
+![Codecov](https://img.shields.io/codecov/c/gh/rainmanhhh/react-osh)
 
 simple react state manager based on observer-util. 'osh' means **O**bservable **S**tate-manager with **H**ooks
 
