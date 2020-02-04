@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@master
       - run: yarn install --frozen-lockfile --non-interactive
       - run: yarn build
       - run: yarn test
-      - uses: coverallsapp/github-action@master
+      - uses: codecov/codecov-action@v1
         with:
-          github-token: ${{ secrets.COVERALLS_TOKEN }}
+          token: ${{ secrets.CODECOV_TOKEN }}
