@@ -19,10 +19,14 @@ jobs:
           ref: ${{ steps.get_tag_name.outputs.TAG_NAME }}
       - uses: actions/setup-node@v1
         with:
-          always-auth: true
+          node-version: 12
       - run: yarn install --frozen-lockfile --non-interactive
       - run: yarn test
       - run: yarn build
-      - uses: luvies/action-yarn-publish@v0.1.1
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - id: publish
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+      - if: steps.publish.type != 'none'
+        run: |
+          echo "Version changed: ${{ steps.publish.old-version }} => ${{ steps.publish.version }}"
