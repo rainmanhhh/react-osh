@@ -1,8 +1,10 @@
 import resolve from 'rollup-plugin-node-resolve'
+import babel from 'rollup-plugin-babel'
 import commonjs from 'rollup-plugin-commonjs'
 import sourceMaps from 'rollup-plugin-sourcemaps'
 import typescript from 'rollup-plugin-typescript2'
 import json from 'rollup-plugin-json'
+import external from 'rollup-plugin-auto-external'
 import pkg from './package.json'
 
 const globals = {
@@ -15,7 +17,6 @@ export default {
     {file: pkg.main, name: 'main', format: 'umd', sourcemap: true, globals},
     {file: pkg.module, format: 'es', sourcemap: true, globals}
   ],
-  external: ['react'],
   watch: {
     include: 'src/**'
   },
@@ -33,7 +34,10 @@ export default {
     // which external modules to include in the bundle
     // https://github.com/rollup/rollup-plugin-node-resolve#usage
     resolve(),
-
+    babel({
+      exclude: 'node_modules/**'
+    }),
+    external(),
     // Resolve source maps to the original source
     sourceMaps()
   ]
