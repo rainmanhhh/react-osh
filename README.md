@@ -83,7 +83,7 @@ export const FooComp = view(function FooComp() {
 })
 ```
 
-##Limitation
+## Limitation
 - ONLY SUPPORT Functional Component.
 - based on es6 Proxy so don't support IE
 - can't use a computed value inside another
