@@ -3,8 +3,8 @@ import {observe} from '@nx-js/observer-util'
 const computedPlaceHolder = {}
 
 /**
- * wrap value provider to computed value.
- * a computed value will cache provider compute result and re-compute when depended observable values change
+ * wrap value provider to computed value getter.
+ * a computed value getter will cache provider compute result and re-compute when depended observable values change
  * todo fix circle: getA() => getB() => getC() => getA()
  * @param provider value provider
  */
@@ -17,8 +17,8 @@ export function computed<T>(provider: () => T) {
       value = r()
     }
   })
-  return function computedValueGetter() {
+  return function computedValueGetter(): T {
     if (value === computedPlaceHolder) value = reaction()
-    return value
+    return value as T
   }
 }

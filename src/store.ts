@@ -3,9 +3,9 @@ import {useMemo} from 'react'
 import {computed} from './computed'
 
 /**
- * create a global shared store
- * @param obj
- * @param wrapGetterToComputed
+ * create a shared store outside components
+ * @param obj object contains init state values
+ * @param wrapGetterToComputed whether to wrap getters to computed values. default value is true
  */
 export function createStore<T extends object>(obj: T, wrapGetterToComputed = true) {
   if (isObservable(obj)) return obj
@@ -30,8 +30,8 @@ export function createStore<T extends object>(obj: T, wrapGetterToComputed = tru
 
 /**
  * when creating local store inside functional component call this hook instead of createStore to avoid recreation during rendering
- * @param obj
- * @param wrapGetterToComputed
+ * @param obj object contains init state values
+ * @param wrapGetterToComputed whether to wrap getters to computed values. default value is true
  */
 export function useLocalStore<T extends object>(obj: T, wrapGetterToComputed = true) {
   return useMemo(() => createStore(obj, wrapGetterToComputed), [])
