@@ -9,6 +9,81 @@
 
 simple react state manager based on observer-util. 'osh' means **O**bservable **S**tate-manager with **H**ooks
 
-react-state-easy seems to be not maintained anymore, so I create this one instead. 
+react-state-easy seems to be not maintained anymore, so I create this one instead.
 
-NOTICE: ONLY SUPPORT Functional Component.
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Limitation](#limitation)
+
+## Introduction
+react-osh is based on @nx-js/observer-util. it provides 3 api: 
+- `createStore` for creating global shared store
+- `useLocalStore` for creating local store inside functional component
+- `view` for wrapping components to make them observe store changes
+- `computed` for wrapping a function to computed value. similar to `React.useMemo` but don't need to specific dependencies manually
+
+## Installation
+
+`npm install react-osh`
+
+or
+
+`yarn add react-osh`
+
+## Usage:
+```jsx harmony
+import * as React from 'react'
+import {createStore, useLocalStore, view} from 'react-osh'
+
+const shared = createStore({
+  value: 1,
+  /**
+   * this is a getter and will be auto wrapped to a 'computed value'(re-compute only when shared.value is changed)
+   */
+  get double() {
+    return shared.value * 2
+  },
+  nested: {
+    value: 'foo'
+  },
+  reset() {
+    shared.value = Math.random()
+  }
+})
+
+/**
+ * set second argument to false means don't wrap getters to computed values.
+ * these getters will be called during every render
+ */
+const rawGetters = createStore({
+  get opposite() {
+    return -shared.value
+  }  
+}, false)
+
+export const FooComp = view(function FooComp() {
+  const local = useLocalStore({
+    count: 0,
+    incr() {
+      local.count++
+    }
+  })
+  return (
+    <div>
+      <div>shared.value: {shared.value}</div>
+      <div>opposite: {rawGetters.opposite}</div>
+      <div>shared.double: {shared.double}</div>
+      <div>shared.nested.value: {shared.nested.value}</div>
+      <button onClick={shared.reset}>reset shared.value</button>
+      <div>local.count: {local.count}</div>
+      <button onClick={local.incr}>increase local.count</button>
+    </div>
+  )
+})
+```
+
+##Limitation
+- ONLY SUPPORT Functional Component.
+- based on es6 Proxy so don't support IE
+- can't use a computed value inside another

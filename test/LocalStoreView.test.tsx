@@ -1,5 +1,5 @@
-import {mount} from 'enzyme'
 import * as React from 'react'
+import {mount} from 'enzyme'
 import LocalStoreView, {LocalStoreType, storeHolder} from './LocalStoreView'
 import {act} from 'react-dom/test-utils'
 import {StrictMode} from 'react'

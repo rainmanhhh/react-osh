@@ -1,4 +1,5 @@
-import view from './view'
-import store from './store'
+import {view} from './view'
+import {createStore, useLocalStore} from './store'
+import {computed} from './computed'
 
-export {view, store}
+export {view, createStore, useLocalStore, computed}

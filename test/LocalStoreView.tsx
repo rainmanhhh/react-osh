@@ -1,4 +1,4 @@
-import {store, view} from '../src'
+import {useLocalStore, view} from '../src'
 import * as React from 'react'
 
 export interface LocalStoreType {
@@ -12,7 +12,7 @@ export const storeHolder: {
 }
 
 function LocalStoreView() {
-  const s = store({
+  const s = useLocalStore({
     value: 0
   })
   storeHolder.store = s
