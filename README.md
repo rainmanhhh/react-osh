@@ -17,11 +17,11 @@ react-state-easy seems to be not maintained anymore, so I create this one instea
 - [Limitation](#limitation)
 
 ## Introduction
-react-osh is based on @nx-js/observer-util. it provides 3 api: 
+react-osh is based on @nx-js/observer-util. it provides below apis: 
 - `createStore` for creating global shared store
 - `useLocalStore` for creating local store inside functional component
 - `view` for wrapping components to make them observe store changes
-- `computed` for wrapping a function to computed value. similar to `React.useMemo` but don't need to specific dependencies manually
+- `computed` for wrapping a function to computed value getter. similar to `React.useMemo` but don't need to specific dependencies manually and can be used outside components
 
 ## Installation
 
