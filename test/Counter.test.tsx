@@ -22,8 +22,8 @@ describe('Counter', function() {
   )
 
   function makeTest<T>(action?: () => T) {
-    const counterValueString = cls.counterValue + ':' + expectedCounterValue.toString()
-    const quotientString = cls.quotient + ':' + expectedQuotient.toString()
+    const counterValueString = cls.counterValue + ':' + expectedCounterValue
+    const quotientString = cls.quotient + ':' + expectedQuotient
     // const doubleQuotientString = cls.doubleQuotient + ':' + expectedDoubleQuotient.toString()
     const eRenderTimes = expectedRenderTimes
     return function() {
