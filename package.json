@@ -53,8 +53,8 @@
     "eslint-plugin-react": "7.29.4",
     "jest": "25.5.4",
     "prettier": "2.6.2",
-    "react": "16.14.0",
-    "react-dom": "16.14.0",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
     "rollup": "2.72.0",
     "rollup-plugin-auto-external": "^2.0.0",
     "rollup-plugin-babel": "^4.3.3",
@@ -70,7 +70,7 @@
     "typescript": "4.7.2"
   },
   "peerDependencies": {
-    "react": "^16.9.0"
+    "react": "^16.9.0 || ^18.0.0"
   },
   "jest": {
     "setupFiles": [
