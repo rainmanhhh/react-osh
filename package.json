@@ -63,7 +63,7 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-sourcemaps": "0.6.3",
     "rollup-plugin-typescript2": "0.31.2",
-    "sinon": "13.0.2",
+    "sinon": "14.0.0",
     "ts-jest": "^25.1.0",
     "ts-node": "10.8.0",
     "tslib": "2.4.0",
