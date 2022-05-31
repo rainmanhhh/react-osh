@@ -1,3 +1,6 @@
+# Archieved
+please use vue3 reactive/ref instead
+
 # react-osh
 ![CI](https://github.com/rainmanhhh/react-osh/workflows/CI/badge.svg)
 ![Codecov](https://img.shields.io/codecov/c/gh/rainmanhhh/react-osh)
